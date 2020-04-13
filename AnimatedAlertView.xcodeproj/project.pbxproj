@@ -17,9 +17,9 @@
 		2F66DE8E2444E40400E4FEE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE8D2444E40400E4FEE3 /* Constants.swift */; };
 		2F66DE8F2444E40400E4FEE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE8D2444E40400E4FEE3 /* Constants.swift */; };
 		2F66DE902444E40400E4FEE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66DE8D2444E40400E4FEE3 /* Constants.swift */; };
-		2FAFD4AF2444E6F100BDCEB3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AlertView.swift */; };
-		2FAFD4B02444E6F100BDCEB3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AlertView.swift */; };
-		2FAFD4B12444E6F100BDCEB3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AlertView.swift */; };
+		2FAFD4AF2444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AnimatedAlertView.swift */; };
+		2FAFD4B02444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AnimatedAlertView.swift */; };
+		2FAFD4B12444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFD4AE2444E6F100BDCEB3 /* AnimatedAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		2F66DE7D2444E13400E4FEE3 /* AnimatedAlertViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAlertViewUITests.swift; sourceTree = "<group>"; };
 		2F66DE7F2444E13400E4FEE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F66DE8D2444E40400E4FEE3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2FAFD4AE2444E6F100BDCEB3 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		2FAFD4AE2444E6F100BDCEB3 /* AnimatedAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2F66DE5F2444E13100E4FEE3 /* ViewController.swift */,
-				2FAFD4AE2444E6F100BDCEB3 /* AlertView.swift */,
+				2FAFD4AE2444E6F100BDCEB3 /* AnimatedAlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FAFD4AF2444E6F100BDCEB3 /* AlertView.swift in Sources */,
+				2FAFD4AF2444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */,
 				2F66DE602444E13100E4FEE3 /* ViewController.swift in Sources */,
 				2F66DE5C2444E13100E4FEE3 /* AppDelegate.swift in Sources */,
 				2F66DE5E2444E13100E4FEE3 /* SceneDelegate.swift in Sources */,
@@ -303,7 +303,7 @@
 			files = (
 				2F66DE732444E13400E4FEE3 /* AnimatedAlertViewTests.swift in Sources */,
 				2F66DE8F2444E40400E4FEE3 /* Constants.swift in Sources */,
-				2FAFD4B02444E6F100BDCEB3 /* AlertView.swift in Sources */,
+				2FAFD4B02444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			files = (
 				2F66DE7E2444E13400E4FEE3 /* AnimatedAlertViewUITests.swift in Sources */,
 				2F66DE902444E40400E4FEE3 /* Constants.swift in Sources */,
-				2FAFD4B12444E6F100BDCEB3 /* AlertView.swift in Sources */,
+				2FAFD4B12444E6F100BDCEB3 /* AnimatedAlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

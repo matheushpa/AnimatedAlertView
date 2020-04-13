@@ -8,11 +8,10 @@
 
 import UIKit
 
-class AlertView: UIView {
+class AnimatedAlertView: UIView {
     
     var dismissButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(kAlertButtonTitleExample, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .black
@@ -41,7 +40,7 @@ class AlertView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "") // TO-DO: Placeholder
+        imageView.image = UIImage(named: "") // TODO: Placeholder
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -49,7 +48,6 @@ class AlertView: UIView {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = kAlertTitleExample
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
@@ -61,7 +59,6 @@ class AlertView: UIView {
     var subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = kAlertSubtitleExample
         label.numberOfLines = 2
         label.textAlignment = .center
         label.font = UIFont(name: "HelveticaNeue-Regular", size: 14)
@@ -70,9 +67,13 @@ class AlertView: UIView {
         return label
     }()
     
+    convenience init(title: String, message: String, buttonTitle: String) {
+        self.init(frame: UIScreen.main.bounds)
+        setupAlertLayout(title: title, message: message, buttonTitle: buttonTitle)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupAlertLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,29 +82,32 @@ class AlertView: UIView {
     
     // MARK: - Setup methods
     
-    func setupAlertLayout() {
+    func setupAlertLayout(title: String, message: String, buttonTitle: String) {
         backgroundView.frame = frame
         addSubview(backgroundView)
-        logoImageView.frame.size = CGSize(width: 74, height: 48)
-        dismissButton.frame.size = CGSize(width: 256, height: 48)
-        titleLabel.frame.size = CGSize(width: 258, height: 36)
-        subtitleLabel.frame.size = CGSize(width: 258, height: 72)
-        alertView.addSubview(logoImageView)
-        let dialogViewHeight = logoImageView.frame.height + titleLabel.frame.height + subtitleLabel.frame.height + dismissButton.frame.height + 80
+//        titleLabel.text = title
+//        subtitleLabel.text = message
+//        dismissButton.setTitle(buttonTitle, for: .normal)
+//        logoImageView.frame.size = CGSize(width: 74, height: 48)
+//        dismissButton.frame.size = CGSize(width: 256, height: 48)
+//        titleLabel.frame.size = CGSize(width: 258, height: 36)
+//        subtitleLabel.frame.size = CGSize(width: 258, height: 72)
+//        alertView.addSubview(logoImageView)
+//        let dialogViewHeight = logoImageView.frame.height + titleLabel.frame.height + subtitleLabel.frame.height + dismissButton.frame.height + 80
         alertView.center.x = self.center.x - (frame.width / 2) + 32
-        alertView.frame.size = CGSize(width: frame.width - 64, height: dialogViewHeight)
-        let logoImageViewXOrigin = (alertView.frame.size.width / 2) - 37
-        logoImageView.frame.origin = CGPoint(x: logoImageViewXOrigin, y: 24)
-        dismissButton.addTarget(self, action: #selector(dismissAlertView), for: .touchUpInside)
-        alertView.addSubview(dismissButton)
-        alertView.addSubview(titleLabel)
-        alertView.addSubview(subtitleLabel)
-        let confirmButtonXOrigin = (alertView.frame.size.width / 2) - 128
-        dismissButton.frame.origin = CGPoint(x: confirmButtonXOrigin, y: alertView.frame.size.height - 72)
-        let titleLabelXOrigin = (alertView.frame.size.width / 2) - 128
-        titleLabel.frame.origin = CGPoint(x: titleLabelXOrigin, y: 96)
-        let subtitleLabelXOrigin = (alertView.frame.size.width / 2) - 128
-        subtitleLabel.frame.origin = CGPoint(x: subtitleLabelXOrigin, y: 116)
+        alertView.frame.size = CGSize(width: 272, height: 480)
+//        let logoImageViewXOrigin = (alertView.frame.size.width / 2) - 37
+//        logoImageView.frame.origin = CGPoint(x: logoImageViewXOrigin, y: 24)
+//        dismissButton.addTarget(self, action: #selector(dismissAlertView), for: .touchUpInside)
+//        alertView.addSubview(dismissButton)
+//        alertView.addSubview(titleLabel)
+//        alertView.addSubview(subtitleLabel)
+//        let confirmButtonXOrigin = (alertView.frame.size.width / 2) - 128
+//        dismissButton.frame.origin = CGPoint(x: confirmButtonXOrigin, y: alertView.frame.size.height - 72)
+//        let titleLabelXOrigin = (alertView.frame.size.width / 2) - 128
+//        titleLabel.frame.origin = CGPoint(x: titleLabelXOrigin, y: 96)
+//        let subtitleLabelXOrigin = (alertView.frame.size.width / 2) - 128
+//        subtitleLabel.frame.origin = CGPoint(x: subtitleLabelXOrigin, y: 116)
         addSubview(alertView)
     }
     
@@ -111,11 +115,16 @@ class AlertView: UIView {
     
     func showAlertView() {
         self.backgroundView.alpha = 0
-        if var topController = UIApplication.shared.delegate?.window??.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
+        if var rootController = UIApplication.shared.delegate?.window??.rootViewController {
+            while let presentedViewController = rootController.presentedViewController {
+                rootController = presentedViewController
             }
-            topController.view.addSubview(self)
+            rootController.view.addSubview(self)
+        } else if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate, var rootController = sceneDelegate.window?.rootViewController {
+            while let presentedViewController = rootController.presentedViewController {
+                rootController = presentedViewController
+            }
+            rootController.view.addSubview(self)
         }
         UIView.animate(withDuration: 0.33, animations: {
             self.backgroundView.alpha = 0.66

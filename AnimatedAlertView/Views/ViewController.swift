@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let alertView = AnimatedAlertView(title: kAlertTitleExample, message: kAlertSubtitleExample, buttonTitle: kAlertButtonTitleExample)
+    
     var tryMeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(kMainButtonTitleExample, for: .normal)
@@ -35,6 +37,13 @@ class ViewController: UIViewController {
         tryMeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         tryMeButton.widthAnchor.constraint(equalToConstant: 272).isActive = true
         tryMeButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        tryMeButton.addTarget(self, action: #selector(showAnimatedAlert), for: .touchUpInside)
+    }
+    
+    // MARK: - Action methods
+    
+    @objc func showAnimatedAlert() {
+        self.alertView.showAlertView()
     }
 }
 
