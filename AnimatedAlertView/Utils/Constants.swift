@@ -9,5 +9,6 @@
 // MARK: - Titles
 
 let kMainButtonTitleExample = "TRY ME!"
-let kAlertTitleExample = "Hey you, this is an example of how to use this animated custom alert view. Feel free to use and try it!"
+let kAlertTitleExample = "Hey, you..."
+let kAlertSubtitleExample = "This is an example of how to use this animated custom alert view. Feel free to use and try it!"
 let kAlertButtonTitleExample = "TRY ME AGAIN!"
